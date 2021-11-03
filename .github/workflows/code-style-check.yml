@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Run eslint check
+      - name: Install modules
         run: make install
+      - name: Run eslint check
         run: make lint
