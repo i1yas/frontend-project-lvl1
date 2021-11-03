@@ -1,0 +1,8 @@
+[Makefile]
+indent_style = tab
+
+[*.js]
+quote_type = single
+prettier.singleQuote = true
+indent_style = space
+indent_size = 2
