@@ -1,7 +1,6 @@
 import console from 'console';
 import readlineSync from 'readline-sync';
-
-const getRandomInt = (min, max) => Math.round(min + Math.random() * (max - min));
+import { getRandomInt } from './helpers.js';
 
 const askIsEven = (number) => {
   console.log(`Question: ${number}`);
