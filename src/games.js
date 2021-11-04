@@ -53,7 +53,7 @@ export const startCalcGame = (name) => {
   const getQuestion = () => {
     const operators = [handlePlus, handleMinus, handleDiv, handleMult];
     const op = operators[getRandomInt(0, operators.length - 1)];
-    return operators[op]();
+    return op();
   };
 
   const isEqual = (rightAnswer, userAnswer) => rightAnswer === Number(userAnswer);
