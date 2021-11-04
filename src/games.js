@@ -42,7 +42,7 @@ export const startCalcGame = (name) => {
       }
       if (op === '/') {
         const answer = getRandomInt(0, 10);
-        const divisor = getRandomInt(0, 10);
+        const divisor = getRandomInt(1, 10);
         const dividend = answer * divisor;
         const text = `${dividend} / ${divisor}`;
         return { answer, text };
