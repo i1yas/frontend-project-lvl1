@@ -60,3 +60,19 @@ export const startCalcGame = (name) => {
     isEqual: (rightAnswer, userAnswer) => rightAnswer === Number(userAnswer),
   });
 };
+
+export const startGcdGame = (name) => {
+  console.log('Find the greatest common divisor of given numbers.');
+
+  askQuestions({
+    name,
+    getQuestion: () => {
+      const gcd = getRandomInt(1, 20);
+      const a = gcd * getRandomInt(1, 20);
+      const b = gcd * getRandomInt(1, 20);
+      const text = [a, b].join(' ');
+      return { answer: gcd, text };
+    },
+    isEqual: (rightAnswer, userAnswer) => rightAnswer === Number(userAnswer),
+  });
+};
