@@ -18,34 +18,35 @@ export const startEvenGame = (name) => {
 export const startCalcGame = (name) => {
   console.log('What is the result of the expression?');
 
-  const handlePlus = () => {
+  const getQuestion = () => {
+    const operators = ['+', '-', '*'];
+    const op = operators[getRandomInt(0, operators.length - 1)];
+
     const a = getRandomInt(0, 50);
     const b = getRandomInt(0, 50);
-    const answer = a + b;
-    const text = `${a} + ${b}`;
-    return { answer, text };
-  };
 
-  const handleMinus = () => {
-    const a = getRandomInt(0, 50);
-    const b = getRandomInt(0, 20);
-    const answer = a - b;
-    const text = `${a} - ${b}`;
-    return { answer, text };
-  };
+    if (op === '+') {
+      return {
+        answer: a + b,
+        text: `${a} + ${b}`,
+      };
+    }
 
-  const handleMult = () => {
-    const a = getRandomInt(0, 20);
-    const b = getRandomInt(0, 5);
-    const answer = a * b;
-    const text = `${a} * ${b}`;
-    return { answer, text };
-  };
+    if (op === '-') {
+      return {
+        answer: a - b,
+        text: `${a} - ${b}`,
+      };
+    }
 
-  const getQuestion = () => {
-    const operators = [handlePlus, handleMinus, handleMult];
-    const op = operators[getRandomInt(0, operators.length - 1)];
-    return op();
+    if (op === '*') {
+      return {
+        answer: a * b,
+        text: `${a} * ${b}`,
+      };
+    }
+
+    return null;
   };
 
   const isEqual = (rightAnswer, userAnswer) => rightAnswer === Number(userAnswer);
