@@ -78,3 +78,37 @@ export const startGcdGame = (name) => {
     isEqual: (rightAnswer, userAnswer) => rightAnswer === Number(userAnswer),
   });
 };
+
+export const startProgressionGame = (name) => {
+  console.log('What number is missing in the progression?');
+
+  const genProgession = () => {
+    const length = getRandomInt(5, 10);
+    const start = getRandomInt(1, 20);
+    const step = getRandomInt(3, 20);
+
+    const progression = [];
+    for (let i = 0; i < length; i += 1) {
+      progression.push(start + i * step);
+    }
+
+    return progression;
+  };
+
+  askQuestions({
+    name,
+    getQuestion: () => {
+      const progression = genProgession();
+      const placeholderIndex = getRandomInt(0, progression.length - 1);
+
+      const progressionForUser = progression.slice();
+      progressionForUser[placeholderIndex] = '..';
+
+      const answer = progression[placeholderIndex];
+      const text = progressionForUser.join(' ');
+
+      return { answer, text };
+    },
+    isEqual: (rightAnswer, userAnswer) => rightAnswer === Number(userAnswer),
+  });
+};
