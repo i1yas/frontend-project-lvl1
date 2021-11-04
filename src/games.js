@@ -64,14 +64,16 @@ export const startCalcGame = (name) => {
 export const startGcdGame = (name) => {
   console.log('Find the greatest common divisor of given numbers.');
 
+  const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
+
   askQuestions({
     name,
     getQuestion: () => {
-      const gcd = getRandomInt(1, 20);
-      const a = gcd * getRandomInt(1, 20);
-      const b = gcd * getRandomInt(1, 20);
+      // NOTE: we multiply 2 numbers to minimize trivial cases
+      const a = getRandomInt(3, 9) * getRandomInt(2, 5);
+      const b = getRandomInt(3, 9) * getRandomInt(10, 20);
       const text = [a, b].join(' ');
-      return { answer: gcd, text };
+      return { answer: gcd(a, b), text };
     },
     isEqual: (rightAnswer, userAnswer) => rightAnswer === Number(userAnswer),
   });
