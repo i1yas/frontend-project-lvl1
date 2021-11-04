@@ -19,5 +19,5 @@ export const askQuestions = ({ name, getQuestion, isEqual }) => {
     }
   }
 
-  console.log(`Congratulations, ${name}`);
+  console.log(`Congratulations, ${name}!`);
 };
