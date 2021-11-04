@@ -1,5 +1,5 @@
 import console from 'console';
-import { getRandomInt, askQuestions } from './index.js';
+import { getRandomInt, gcd, askQuestions } from './index.js';
 
 export const startEvenGame = (name) => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
@@ -64,8 +64,6 @@ export const startCalcGame = (name) => {
 export const startGcdGame = (name) => {
   console.log('Find the greatest common divisor of given numbers.');
 
-  const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
-
   askQuestions({
     name,
     getQuestion: () => {
@@ -110,5 +108,43 @@ export const startProgressionGame = (name) => {
       return { answer, text };
     },
     isEqual: (rightAnswer, userAnswer) => rightAnswer === Number(userAnswer),
+  });
+};
+
+export const startPrimeGame = (name) => {
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+
+  const getComposite = () => getRandomInt(5, 20) * getRandomInt(10, 50);
+
+  const getPrime = (n) => {
+    const notPrime = (number) => {
+      const end = Math.round(Math.sqrt(number) + 1);
+      for (let i = 2; i <= end; i += 1) {
+        if (gcd(number, i) !== 1) return true;
+      }
+      return false;
+    };
+
+    const iter = (number, i) => {
+      if (notPrime(number)) return iter(number + 1, i);
+      if (i === n) return number;
+      return iter(number + 1, i + 1);
+    };
+
+    return iter(2, 0);
+  };
+
+  askQuestions({
+    name,
+    getQuestion: () => {
+      const isPrime = Math.random() > 0.4;
+      if (isPrime) {
+        const prime = getPrime(getRandomInt(0, 20));
+        return { text: prime, answer: 'yes' };
+      }
+      const number = getComposite();
+      return { text: number, answer: 'no' };
+    },
+    isEqual: (rightAnswer, userAnswer) => rightAnswer === userAnswer,
   });
 };
