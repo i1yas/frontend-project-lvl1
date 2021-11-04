@@ -1,4 +1,3 @@
-import console from 'console';
 import { getRandomInt, gcd, askQuestions } from './index.js';
 
 export const startEvenGame = (name) => {

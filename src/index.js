@@ -1,4 +1,3 @@
-import console from 'console';
 import readlineSync from 'readline-sync';
 
 export const getRandomInt = (min, max) => Math.round(min + Math.random() * (max - min));
