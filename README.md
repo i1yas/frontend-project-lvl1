@@ -3,7 +3,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/5a9156e798ee06e1cc8c/maintainability)](https://codeclimate.com/github/i1yas/frontend-project-lvl1/maintainability)
 
 ## Brain even
-[![asciicast](https://asciinema.org/a/MS9IjsVX8FSQFjVJielp8QoL5.svg)](https://asciinema.org/a/MS9IjsVX8FSQFjVJielp8QoL5)
+[![asciicast](https://asciinema.org/a/oqIYIJMIf8FTKVHl39aWgCQ02.svg)](https://asciinema.org/a/oqIYIJMIf8FTKVHl39aWgCQ02)
 
 ## Brain calc
-[![asciicast](https://asciinema.org/a/hwXjWZR7NiiF1tY7Qq2pJci4t.svg)](https://asciinema.org/a/hwXjWZR7NiiF1tY7Qq2pJci4t)
+[![asciicast](https://asciinema.org/a/GqhjkzApHJGzsZA17f2boyEba.svg)](https://asciinema.org/a/GqhjkzApHJGzsZA17f2boyEba)
