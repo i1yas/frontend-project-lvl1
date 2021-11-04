@@ -34,14 +34,6 @@ export const startCalcGame = (name) => {
     return { answer, text };
   };
 
-  const handleDiv = () => {
-    const answer = getRandomInt(0, 10);
-    const divisor = getRandomInt(1, 10);
-    const dividend = answer * divisor;
-    const text = `${dividend} / ${divisor}`;
-    return { answer, text };
-  };
-
   const handleMult = () => {
     const a = getRandomInt(0, 20);
     const b = getRandomInt(0, 5);
@@ -51,7 +43,7 @@ export const startCalcGame = (name) => {
   };
 
   const getQuestion = () => {
-    const operators = [handlePlus, handleMinus, handleDiv, handleMult];
+    const operators = [handlePlus, handleMinus, handleMult];
     const op = operators[getRandomInt(0, operators.length - 1)];
     return op();
   };
