@@ -4,7 +4,13 @@ export const getRandomInt = (min, max) => Math.round(min + Math.random() * (max 
 
 export const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
 
-export const askQuestions = ({ name, getQuestion, isEqual }) => {
+export const isEqualDefault = (a, b) => a === b;
+
+export const askQuestions = ({
+  name,
+  getQuestion,
+  isEqual = isEqualDefault,
+}) => {
   const questionsCount = 3;
 
   for (let i = 0; i < questionsCount; i += 1) {
