@@ -23,38 +23,39 @@ export const startCalcGame = (name) => {
   askQuestions({
     name,
     getQuestion: () => {
-      let text;
-      let answer;
-
       const operators = ['+', '-', '/', '*'];
       const op = operators[getRandomInt(0, operators.length - 1)];
 
       if (op === '+') {
-        const a = getRandomInt(0, 100);
-        const b = getRandomInt(0, 100);
-        answer = a + b;
-        text = `${a} + ${b}`;
+        const a = getRandomInt(0, 50);
+        const b = getRandomInt(0, 50);
+        const answer = a + b;
+        const text = `${a} + ${b}`;
+        return { answer, text };
       }
       if (op === '-') {
-        const a = getRandomInt(0, 100);
-        const b = getRandomInt(0, 100);
-        answer = a - b;
-        text = `${a} - ${b}`;
+        const a = getRandomInt(0, 50);
+        const b = getRandomInt(0, 20);
+        const answer = a - b;
+        const text = `${a} - ${b}`;
+        return { answer, text };
       }
       if (op === '/') {
-        const a = getRandomInt(0, 50);
-        const b = getRandomInt(0, 10);
-        answer = a / b;
-        text = `${a} / ${b}`;
+        const answer = getRandomInt(0, 10);
+        const divisor = getRandomInt(0, 10);
+        const dividend = answer * divisor;
+        const text = `${dividend} / ${divisor}`;
+        return { answer, text };
       }
       if (op === '*') {
         const a = getRandomInt(0, 20);
-        const b = getRandomInt(0, 10);
-        answer = a * b;
-        text = `${a} * ${b}`;
+        const b = getRandomInt(0, 5);
+        const answer = a * b;
+        const text = `${a} * ${b}`;
+        return { answer, text };
       }
 
-      return { text, answer };
+      return null;
     },
     isEqual: (rightAnswer, userAnswer) => rightAnswer === Number(userAnswer),
   });
