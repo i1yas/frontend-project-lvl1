@@ -8,7 +8,7 @@ export const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
 export const askQuestions = ({ name, getQuestion, isEqual }) => {
   for (let i = 0; i < 3; i += 1) {
     const question = getQuestion();
-    console.log(question.text);
+    console.log(`Question: ${question.text}`);
     const userAnswer = readlineSync.question('Your answer: ');
     if (isEqual(question.answer, userAnswer)) {
       console.log('Correct!');
